@@ -25,5 +25,16 @@ namespace RoutingPractice.Controllers
                 return Content("ID: " + id);
             }
         }
+        [Route("[action]/{start}/{end?}/{message?}")]
+        public IActionResult Countdown(int start, int end = 0, string message = "")
+        {
+      
+            string contentString = "Counting down: \n";
+            for (int i = start; i >= end; i--)
+            {
+                contentString += i + "\n";
+            }
+            return Content(contentString + message);
+        }
     }
 }
